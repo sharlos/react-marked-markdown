@@ -2,6 +2,12 @@ import React from 'react';
 import marked from 'marked';
 import hljs from 'highlight.js';
 import PropTypes from 'prop-types';
+import createDOMPurify from 'dompurify';
+import { JSDOM } from 'jsdom';
+
+// Initializing DOM Purify
+const window = (new JSDOM('')).window;
+const DOMPurify = createDOMPurify(window);
 
 export default class MarkdownPreview extends React.Component {
   constructor(props) {
@@ -45,7 +51,7 @@ export default class MarkdownPreview extends React.Component {
     renderer.link = (href, title, text) => (
       `<a target="_blank" rel="noopener noreferrer" href="${href}" title="${title}">${text}</a>`
     );
-    const html = marked(value || '', { renderer });
+    const html = DOMPurify.sanitize(marked(value || '', { renderer }));
 
     return (
       <div

@@ -10,6 +10,14 @@ describe('MarkdownPreview', () => {
     const text = '# Title';
     /* eslint-disable react/jsx-filename-extension */
     const wrapper = shallow(<MarkdownPreview value={text} />);
-    expect(wrapper.html()).to.be.equal('<div><h1 id="title">Title</h1>\n</div>');
+    expect(wrapper.html()).to.be.equal('<div><h1>Title</h1>\n</div>');
+  });
+
+  it('should sanitize the HTML', () => {
+    const xss = '[XSS](javascript: alert`1`)';
+    /* eslint-disable react/jsx-filename-extension */
+    const wrapper = shallow(<MarkdownPreview value={xss} />);
+    expect(wrapper.html())
+      .to.be.equal('<div><p><a title="null" rel="noopener noreferrer">XSS</a></p>\n</div>');
   });
 });
