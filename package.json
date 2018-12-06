@@ -1,10 +1,10 @@
 {
   "name": "react-marked-markdown",
-  "version": "1.4.6",
+  "version": "1.0.1",
   "description": "Some React Components to use Markdown easily",
   "repository": {
     "type": "git",
-    "url": "https://github.com/vincent-p/react-marked-markdown.git"
+    "url": "https://github.com/sharlos/react-marked-markdown.git"
   },
   "license": "MIT",
   "scripts": {
