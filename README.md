@@ -3,6 +3,10 @@
 [![npm](https://img.shields.io/npm/dt/react-marked-markdown.svg?maxAge=2592000)]()
 # React Marked Markdown
 
+A fork of React Marked Markdown without the large highlight.js dependency that enabled code-highlighting.
+
+---
+
 A react components package that helps you use Markdown easily.
 
 ---
